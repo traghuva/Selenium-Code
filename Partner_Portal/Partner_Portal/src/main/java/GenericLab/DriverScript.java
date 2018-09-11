@@ -32,13 +32,13 @@ public class DriverScript {
 		public static String[] sExpectedFields;
 		public static String[] sExpectedValues;
 		public static Action action;
-		public static Object ob;
+		PartnerPortalObjects ppo = new PartnerPortalObjects();
 		
 
 		public DriverScript() throws NoSuchMethodException, SecurityException, ClassNotFoundException, InstantiationException, Exception{
 			//This will load all the methods of the class 'ActionKeywords' in it.
 	                //It will be like array of method, use the break point here and do the watch
-			PartnerPortalObjects ppo = new PartnerPortalObjects();
+//			PartnerPortalObjects ppo = new PartnerPortalObjects();
 			fields=ppo.getClass().getDeclaredFields();
 
 			action = new Action();
@@ -80,7 +80,7 @@ public class DriverScript {
 						sActionKeyword=ReadExcel.getCellData(k, 5);
 
 						//executing step
-						executeAction(ob,sField,sActionKeyword,sValue);
+						executeAction(ppo,sField,sActionKeyword,sValue);
 						PartnerPortalTest.test.log(LogStatus.INFO, "Performed action \""+sActionKeyword+ "\" in \""+sValue+"\" for \""+sField+"\"");
 						
 						sExpectedAction=ReadExcel.getCellData(k, 6);
@@ -101,7 +101,7 @@ public class DriverScript {
 								try{
 									System.out.println("Expected action "+sExpectedActions[j]);
 
-									executeAction(ob,sExpectedFields[j],sExpectedActions[j],sExpectedValues[j]);
+									executeAction(ppo,sExpectedFields[j],sExpectedActions[j],sExpectedValues[j]);
 								BrowserHandling.test.log(LogStatus.INFO, "Step Passed");
 								}catch(Exception e)
 								{

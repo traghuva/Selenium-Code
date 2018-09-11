@@ -3,21 +3,15 @@
 <suite name="Suite" parallel="tests">
 
   
-   <parameter name="ExcelFile" value="C:\Users\so.maggo\workspace\Partner_Portal_Framework\Partner_Portal.xlsx"></parameter>
+   <parameter name="ExcelFile" value="C:\Users\tu.raghuvanshi\eclipse-workspace\Partner_Portal\Partner_Portal\Partner_Portal.xlsx"></parameter>
    <parameter name="BrowserName" value="Chrome"></parameter>
    <parameter name="URL" value="http://35.154.53.144"></parameter>
          
- <test name="PageTests">
-    <classes>
-	   <!-- <class name="tests.SignUpTest">	
-			<methods>
-				<include name="signup2"/>
-				<include name="signup"/>
-			</methods>
-	  </class>  -->
-
-      <class name="tests.LoginTest">
- 	  </class>
+   <test thread-count="1" name="Test">
+   
+	<classes>
+      <class name="tests.PartnerPortalTest"/>
+ 	
     </classes>
   </test> <!-- Test -->
   

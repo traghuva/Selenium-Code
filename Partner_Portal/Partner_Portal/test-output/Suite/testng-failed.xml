@@ -2,22 +2,22 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="tests">
   <parameter name="BrowserName" value="Chrome"/>
-  <parameter name="ExcelFile" value="C:\Users\so.maggo\workspace\Partner_Portal_Framework\Partner_Portal.xlsx"/>
+  <parameter name="ExcelFile" value="C:\Users\tu.raghuvanshi\eclipse-workspace\Partner_Portal\Partner_Portal\Partner_Portal.xlsx"/>
   <parameter name="URL" value="http://35.154.53.144"/>
-  <test name="PageTests">
+  <test thread-count="1" name="Test">
     <classes>
-      <class name="tests.LoginTest"/>
+      <class name="tests.PartnerPortalTest"/>
     </classes>
-  </test> <!-- PageTests -->
-  <test name="PageTests(failed)" parallel="tests">
+  </test> <!-- Test -->
+  <test name="Test(failed)" parallel="tests">
     <classes>
-      <class name="tests.LoginTest">
+      <class name="tests.PartnerPortalTest">
         <methods>
-          <include name="login" invocation-numbers="0"/>
           <include name="CloseBrowser"/>
           <include name="OpenBrowser"/>
+          <include name="login" invocation-numbers="0"/>
         </methods>
-      </class> <!-- tests.LoginTest -->
+      </class> <!-- tests.PartnerPortalTest -->
     </classes>
-  </test> <!-- PageTests(failed) -->
+  </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

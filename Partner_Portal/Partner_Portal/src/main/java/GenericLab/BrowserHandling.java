@@ -28,9 +28,15 @@ public class BrowserHandling {
 	
 	protected BrowserHandling()
 	{
-		  Date date=new Date();			  
-		  SimpleDateFormat dateFormat=new SimpleDateFormat("dd_MMM_yyyy_hh_mm_ssaa");
-		  extent=new ExtentReports(System.getProperty("user.dir")+File.separator+"/FrameworkReports/"+"Report"+dateFormat.format(date)+".html",false);	
+		  Date date=new Date();	
+		  SimpleDateFormat dateFormatFolder = new SimpleDateFormat("dd_MMM_yyyy");
+		  File ResultDir = new File(System.getProperty("user.dir")+File.separator+"/FrameworkReports/"+dateFormatFolder.format(date));  // Defining Directory/Folder Name  
+		  
+		       if (!ResultDir.exists()){  // Checks that Directory/Folder Doesn't Exists!  
+		    	   ResultDir.mkdir();    
+		      }
+		   SimpleDateFormat dateFormat=new SimpleDateFormat("dd_MMM_yyyy_hh_mm_ssaa");
+		  extent=new ExtentReports(ResultDir +"/" +"Report"+dateFormat.format(date)+".html",false);	
 		 // extent.startTest("Open Browser");
 	}
 	

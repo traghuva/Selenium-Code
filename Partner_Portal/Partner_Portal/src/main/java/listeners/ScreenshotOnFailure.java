@@ -52,10 +52,17 @@ public class ScreenshotOnFailure {
 		        
 			//  File location=new File(System.getProperty("user.dir"));
 			  
-			  Date date=new Date();			  
+			 	
+			  Date date=new Date();	
+			  SimpleDateFormat dateFormatFolder = new SimpleDateFormat("dd_MMM_yyyy");
+			  File ScreenshotDir = new File(System.getProperty("user.dir")+File.separator+"/Screenshots/"+dateFormatFolder.format(date));  // Defining Directory/Folder Name  
+			  
+			       if (!ScreenshotDir.exists()){  // Checks that Directory/Folder Doesn't Exists!  
+			    	   ScreenshotDir.mkdir();    
+			      }
 			  SimpleDateFormat dateFormat=new SimpleDateFormat("dd_MMM_yyyy_hh_mm_ssaa");
 			  
-			  String screenshotName=System.getProperty("user.dir")+File.separator+"/Screenshots/"+dateFormat.format(date)+".png";
+			  String screenshotName=ScreenshotDir +"/"+dateFormat.format(date)+".png";
 			  
 			  
 			  System.out.println("screenshot loction: "+screenshotName);
